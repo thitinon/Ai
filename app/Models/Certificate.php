@@ -22,4 +22,9 @@ class Certificate extends Model
     {
         return $this->belongsTo(Course::class);
     }
+
+    public static function generateNumber(): string
+    {
+        return 'CERT-' . date('Ymd') . '-' . strtoupper(bin2hex(random_bytes(4)));
+    }
 }
